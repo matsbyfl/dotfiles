@@ -2,6 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+#
+export TERM="xterm-256color"
+export LANG="en_US.UTF-8"
   export ZSH=/home/B115620/.oh-my-zsh
 
 #POWERLEVEL9K_MODE='nerdfont-complete'
@@ -18,16 +21,17 @@ POWERLEVEL9K_TIME_FOREGROUND='243'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh root_indicator dir_writable context dir node_version kubecontext vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(disk_usage status command_execution_time time )
 POWERLEVEL9K_DISK_USAGE_ONLY_WARNING=true
-POWERLEVEL9K_TIME_FORMAT="%D{  %H:%M \ue868 %d.%m.%y}"
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \ue868 %d.%m.%y}"
 POWERLEVEL9K_SHOW_CHANGESET=true
-
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="  >>> "
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_STATUS_OK=false
 #POWERLEVEL9K_HOME_FOLDER_ABBREVIATION="%F{black} $(print_icon 'HOME_ICON') %F{black}"
 #POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 #POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=" "
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" "
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" "
 
 
 # Uncomment the following line to use case-sensitive completion.
