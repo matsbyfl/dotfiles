@@ -5,7 +5,7 @@
 #
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
-export ZSH=/home/B115620/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 #TODO make nerd font work and borrow stuff from this guy https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config
 #POWERLEVEL9K_MODE='nerdfont-complete'
