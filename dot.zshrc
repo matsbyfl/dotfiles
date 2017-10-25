@@ -8,8 +8,8 @@ export LANG="en_US.UTF-8"
 export ZSH=~/.oh-my-zsh
 
 #TODO make nerd font work and borrow stuff from this guy https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config
-#POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_MODE="awesome-patched"
+POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_MODE="awesome-patched"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -125,6 +125,8 @@ setopt hist_reduce_blanks       # Remove superfluous blanks.
 setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
 
 source ~/aliases
+kc() { export KUBECONFIG=~/ws/kubeconfigs/"$@"/config }
+export KUBECONFIG=~/ws/kubeconfigs/preprod-fss/config
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
