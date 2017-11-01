@@ -1,0 +1,8 @@
+{
+    "files.autoSave": "afterDelay",
+    "terminal.integrated.shell.linux": "/bin/sh",
+    "terminal.integrated.shell.osx": "/bin/sh",
+    "editor.formatOnSave": true,
+    "editor.fontSize": 14,
+    "editor.fontFamily": "Monaco, 'Courier New', monospace"
+}
