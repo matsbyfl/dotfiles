@@ -2,7 +2,22 @@
     "files.autoSave": "afterDelay",
     "terminal.integrated.shell.linux": "/bin/sh",
     "terminal.integrated.shell.osx": "/bin/sh",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
+// Enable per-language
+"[javascript]": {
+    "editor.formatOnSave": true
+},
     "editor.fontSize": 14,
-    "editor.fontFamily": "Monaco, 'Courier New', monospace"
+    "workbench.panel.location": "right",
+    "git.promptToSaveFilesBeforeCommit": true,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "prettier.semi": false,
+    "explorer.confirmDelete": false,
+    "prettier.printWidth": 100,
+    "eslint.enable": false,
+    "gitHistory.showEditorTitleMenuBarIcons": true,
+    "editor.fontFamily": "Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "terminal.explorerKind": "external",
+    "gitHistory.hideCommitViewExplorer": true
 }

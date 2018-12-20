@@ -8,8 +8,8 @@ export LANG="en_US.UTF-8"
 export ZSH=~/.oh-my-zsh
 
 #TODO make nerd font work and borrow stuff from this guy https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config
-POWERLEVEL9K_MODE='nerdfont-complete'
-#POWERLEVEL9K_MODE="awesome-patched"
+#POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_MODE="awesome-patched"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -19,8 +19,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 #DEFAULT_USER=B115620
 POWERLEVEL9K_TIME_BACKGROUND="black"
 POWERLEVEL9K_TIME_FOREGROUND='243'	
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh root_indicator dir_writable dir kubecontext vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time time )
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh root_indicator dir_writable dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext status command_execution_time time )
 POWERLEVEL9K_DISK_USAGE_ONLY_WARNING=true
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \ue868 %d.%m.%y}"
 POWERLEVEL9K_SHOW_CHANGESET=true
@@ -126,7 +126,7 @@ setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
 
 source ~/aliases
 kc() { export KUBECONFIG=~/ws/kubeconfigs/"$@"/config }
-export KUBECONFIG=~/ws/kubeconfigs/preprod-fss/config
+export KUBECONFIG=~/ws/kubeconfigs/config
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -155,3 +155,17 @@ export KUBECONFIG=~/ws/kubeconfigs/preprod-fss/config
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias k="kubectl"
+export GPG_TTY=$(tty)
+export GOPATH=~/ws/go
+export DEPPROJECTROOT=$GOPATH
+
+# added by travis gem
+[ -f /Users/matsbyfuglien/.travis/travis.sh ] && source /Users/matsbyfuglien/.travis/travis.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/matsbyfuglien/gcloud/path.zsh.inc' ]; then . '/Users/matsbyfuglien/gcloud/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/matsbyfuglien/gcloud/completion.zsh.inc' ]; then . '/Users/matsbyfuglien/gcloud/completion.zsh.inc'; fi
