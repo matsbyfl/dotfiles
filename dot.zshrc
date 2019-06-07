@@ -17,12 +17,13 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 #POWERLEVEL9K_MODE='nerdfont-complete'
 #DEFAULT_USER=B115620
+#POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND="green"
 POWERLEVEL9K_TIME_BACKGROUND="black"
 POWERLEVEL9K_TIME_FOREGROUND='243'	
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh root_indicator dir_writable dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext status command_execution_time time )
 POWERLEVEL9K_DISK_USAGE_ONLY_WARNING=true
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \ue868 %d.%m.%y}"
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M  %d.%m.%y}"
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" >>> "
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
@@ -34,13 +35,19 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=" "
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" "
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="black"
+#POWERLEVEL9K_DIR_BACKGROUND="black"
+#POWERLEVEL9K_DIR_FOREGROUND='004'
+POWERLEVEL9K_VCS_BACKGROUND="black"
+POWERLEVEL9K_VCS_FOREGROUND='002'
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND="black"
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND='006'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="094"
 #POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\ue868'
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="|"
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=""
 POWERLEVEL9K_STATUS_ERROR_BACKGROUND="black"
 POWERLEVEL9K_STATUS_ERROR_FOREGROUND="001"
-POWERLEVEL9K_OS_ICON_FOREGROUND="black"
-POWERLEVEL9K_OS_ICON_BACKGROUND="002"
+POWERLEVEL9K_OS_ICON_FOREGROUND="002"
+POWERLEVEL9K_OS_ICON_BACKGROUND="black"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -118,15 +125,15 @@ setopt append_history           # Don;t overwrite history
 setopt extended_history         # Also record time and duration of commands.
 setopt share_history            # Share history between multiple shells
 setopt hist_expire_dups_first   # Clear duplicates when trimming internal hist.
-setopt hist_find_no_dups        # Don"t display duplicates during searches.
+setopt hist_find_no_dups        # Dont display duplicates during searches.
 setopt hist_ignore_dups         # Ignore consecutive duplicates.
 setopt hist_ignore_all_dups     # Remember only one unique copy of the command.
 setopt hist_reduce_blanks       # Remove superfluous blanks.
 setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
 
 source ~/aliases
-kc() { export KUBECONFIG=~/ws/kubeconfigs/"$@"/config }
-export KUBECONFIG=~/ws/kubeconfigs/config
+#kc() { export KUBECONFIG=~/ws/kubeconfigs/"$@"/config }
+export KUBECONFIG=~/.kube/config:~/ws/kubeconfigs/config
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -156,16 +163,22 @@ export KUBECONFIG=~/ws/kubeconfigs/config
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias k="kubectl"
 export GPG_TTY=$(tty)
 export GOPATH=~/ws/go
 export DEPPROJECTROOT=$GOPATH
+export GO111MODULE=on
+export MAVEN_OPTS="-DsocksProxyHost=127.0.0.1 -DsocksProxyPort=5000"
 
-# added by travis gem
-[ -f /Users/matsbyfuglien/.travis/travis.sh ] && source /Users/matsbyfuglien/.travis/travis.sh
+source <(kubectl completion zsh) 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/mats/.sdkman"
+[[ -s "/Users/mats/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/mats/.sdkman/bin/sdkman-init.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/matsbyfuglien/gcloud/path.zsh.inc' ]; then . '/Users/matsbyfuglien/gcloud/path.zsh.inc'; fi
+if [ -f '/Users/mats/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mats/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/matsbyfuglien/gcloud/completion.zsh.inc' ]; then . '/Users/matsbyfuglien/gcloud/completion.zsh.inc'; fi
+if [ -f '/Users/mats/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mats/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
